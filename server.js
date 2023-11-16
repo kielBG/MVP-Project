@@ -13,7 +13,7 @@ const pool = new pg.Pool ({
     user: 'postgres',
     host: 'localhost',
     database:'eclectunes',
-    password: '1095', //process.env.PG_PASS,
+    password: process.env.PG_PASS,
     port: 5432
 })
 
