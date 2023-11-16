@@ -10,11 +10,7 @@ const port = process.env.port || 8000;
 dotenv.config({path: './.env'});
 //pool
 const pool = new pg.Pool ({
-    user: 'postgres',
-    host: 'localhost',
-    database:'eclectunes',
-    password: process.env.PG_PASS,
-    port: 5432
+    connectionString: process.env.DATABASE_URL
 })
 
 //server inst
