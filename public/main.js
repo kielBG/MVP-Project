@@ -7,7 +7,7 @@ const songsPage = $(`<div id=songs_page></div>`);
 body.append(songsPage);
 songsPage.hide();
 
-recommendForm.innerHTML(`
+recommendForm.html(`
 <h2>Recommend a song!</h2>
 <input type = "text" id = "song_title" placeholder = "Song title?">
 <input type = "text" id = "band_name" placeholder = "Band name?">
