@@ -18,9 +18,11 @@ recommendForm.html(`
 <input type = "text" id = "recommend_why" placeholder = "Why do you like this song?">
 <btn id = "send">Send in your recommendation!</btn>
 `);
+recommendForm.append(sendBtn);
 
 body.append(recommendForm);
 recommendForm.hide();
+
 recommendBtn.on("click", () => {
 songsPage.hide();
 recommendForm.show();
@@ -31,13 +33,8 @@ sendBtn.on("click", () => {
     sendRecommend();
 });
 
-let reccomendCount = 0;
-
 const sendRecommend = () => {
-    if (reccomendCount < 1) {
-        recommendForm.append(sendBtn)
-        reccomendCount++;
-    }
+    
     const url = 'https://eclectunes.onrender.com/api/songs';
 
     const newSong = {
