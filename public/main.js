@@ -31,8 +31,15 @@ sendBtn.on("click", () => {
     sendRecommend();
 });
 
+const reccomendCount = 0;
+
 const sendRecommend = () => {
+    if (reccomendCount < 1) {
+        recommendForm.append(sendBtn)
+        reccomendCount++;
+    }
     const url = 'https://eclectunes.onrender.com/api/songs';
+
     const newSong = {
         song_title: $(`#song_title`).val(),
         band_name: $(`#band_name`).val(),
@@ -75,6 +82,7 @@ songsBtn.on("click", () => {
                     data.forEach((song, index) => {
                         console.log(song);
                         songsPage.append(`<li class='song'> <b>song title:</b> ${song.song_title} <b>band name:</b> ${song.band_name} <b>genre:</b> ${song.genre} <b>favorite song lyric:</b> ${song.song_lyric} <b>Why it was reccomended:</b> ${song.recommend_why}</li>`)
+                        getCount++;
                     });
                 }, 
             });
