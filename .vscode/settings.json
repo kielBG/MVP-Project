@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": true
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "CockroachDB",
+            "name": "eclectunes",
+            "connectString": "postgres://eclectunes_user:nMzECNLt8mCNJVJ92lbjux9LVQWD0OOx@dpg-clbaehqqviqc73cmo9ug-a.oregon-postgres.render.com/eclectunes"
+        }
+    ]
+}

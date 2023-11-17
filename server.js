@@ -9,6 +9,7 @@ const port = process.env.port || 8000;
 //dotenv path
 dotenv.config({path: './.env'});
 //pool
+const { Pool } = pg;
 const pool = new pg.Pool ({
     connectionString: process.env.DATABASE_URL
 })
