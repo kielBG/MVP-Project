@@ -82,8 +82,8 @@ songsBtn.on("click", () => {
                     data.forEach((song, index) => {
                         console.log(song);
                         songsPage.append(`<li class='song'> <b>song title:</b> ${song.song_title} <b>band name:</b> ${song.band_name} <b>genre:</b> ${song.genre} <b>favorite song lyric:</b> ${song.song_lyric} <b>Why it was reccomended:</b> ${song.recommend_why}</li>`)
-                        getCount++;
                     });
+                    getCount++;
                 }, 
             });
         } catch (error) {
