@@ -27,7 +27,9 @@ recommendForm.show();
 })
 
 const sendBtn = $(`#send`);
-sendBtn.on("click", sendRecommend);
+sendBtn.on("click", () => {
+    sendRecommend();
+});
 
 const sendRecommend = () => {
     const url = 'https://eclectunes.onrender.com/api/songs';
