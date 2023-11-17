@@ -17,7 +17,7 @@ recommendForm.html(`
 <input type = "text" id = "song_lyric" placeholder = "Favorite song lyric?">
 <input type = "text" id = "recommend_why" placeholder = "Why do you like this song?">
 `);
-const sendBtn = $(`<btn id = "send">Share you recommendation!</btn>`);
+const sendBtn = $(`<button id = "send">Share you recommendation!</button>`);
 sendBtn.on("click", () => {
     sendRecommend();
 });
