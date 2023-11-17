@@ -1,3 +1,5 @@
+$(document).ready( () => { 
+
 const body = $('body');
 
 const recommendBtn = $(`#recommend`);
@@ -80,4 +82,6 @@ songsBtn.on("click", () => {
             recommendForm.append(`<p>Failed to get songs! Oh no!</p>`); 
         }
     }
+});
+
 });
