@@ -18,7 +18,11 @@ recommendForm.html(`
 <input type = "text" id = "recommend_why" placeholder = "Why do you like this song?">
 <btn id = "send">Send in your recommendation!</btn>
 `);
-
+const sendBtn = $(`#send`);
+sendBtn.on("click", () => {
+    sendRecommend();
+});
+recommendForm.append(sendBtn);
 body.append(recommendForm);
 recommendForm.hide();
 
@@ -27,11 +31,7 @@ songsPage.hide();
 recommendForm.show();
 })
 
-const sendBtn = $(`#send`);
-sendBtn.on("click", () => {
-    sendRecommend();
-});
-recommendForm.append(sendBtn);
+
 
 const sendRecommend = () => {
     
