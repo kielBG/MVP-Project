@@ -31,7 +31,7 @@ sendBtn.on("click", () => {
     sendRecommend();
 });
 
-const reccomendCount = 0;
+let reccomendCount = 0;
 
 const sendRecommend = () => {
     if (reccomendCount < 1) {
@@ -66,7 +66,7 @@ const sendRecommend = () => {
     }
 };
 
-const getCount = 0
+let getCount = 0
 
 songsBtn.on("click", () => {
     recommendForm.hide();
