@@ -5,13 +5,13 @@ import dotenv from "dotenv"
 //express
 const app = express();
 //port
-const port = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 //dotenv path
 dotenv.config({path: './.env'});
 //pool
 const { Pool } = pg;
 const pool = new pg.Pool ({
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.LOCAL_DATABASE_URL
 })
 
 //server inst
@@ -83,8 +83,9 @@ app.get('/api/users/:id', async (req, res) => {
 app.post('/api/songs', async (req, res) => {
     const client = await pool.connect();
     const {song_title, band_name, genre, song_quote, recommend_why, user_id} = req.body;
+    console.log(req.body.song_title);
     try {
-        const result = await client.query('INSERT INTO songs (song_title, band_name, genre, song_quote, recommend_why, user_id) VALUES ($1, $2, $3, $4, $5, $6)', [song_title, band_name, genre, song_quote, recommend_why, user_id]);
+        const result = await pool.query('INSERT INTO songs (song_title, band_name, genre, song_quote, recommend_why, user_id) VALUES ($1, $2, $3, $4, $5, $6)', [song_title, band_name, genre, song_quote, recommend_why, user_id]);
         res.json(req.body);
     } 
     catch (error) {
