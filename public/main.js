@@ -1,6 +1,37 @@
 $(document).ready( () => { 
 
 let songBank;
+const body = $('body');
+const joinBtn = $(`#sign_up`);
+
+joinBtn.on("click", () => {
+    let username = window.prompt("Please enter Username") 
+    let password = window.prompt("Please enter password")
+
+    let newUser = {
+        username: username,
+        password: password
+    }
+
+    // const url = 'https://eclectunes.onrender.com/api/users';
+    const url = 'http://localhost:8000/api/users';
+    try{
+        $.ajax( {
+            url,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(newUser)
+        })
+        .done((data) => {
+            console.log('User created:', data);
+            window.alert("You created an account");
+        });
+    } catch (error) {
+        console.error('Error creating account', error);
+        console.error('Failed to create account');
+    }
+    
+});
 
 const loadSongBank = () => {
     // const url = 'https://eclectunes.onrender.com/api/songs';
@@ -20,7 +51,7 @@ const loadSongBank = () => {
     }
 };
 loadSongBank();
-const body = $('body');
+
 
 const songsBtn = $(`#songs`);
 const recommendForm = $(`<div id=recommend_form></div>`);
