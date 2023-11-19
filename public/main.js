@@ -5,16 +5,18 @@ const body = $('body');
 const joinBtn = $(`#sign_up`);
 
 joinBtn.on("click", () => {
-    let username = window.prompt("Please enter Username") 
-    let password = window.prompt("Please enter password")
+
+    let newUsername = window.prompt("Please create Username"); 
+    let newPassword = window.prompt("Please create password");
 
     let newUser = {
-        username: username,
-        password: password
-    }
+        username: newUsername,
+        password: newPassword
+    };
 
     // const url = 'https://eclectunes.onrender.com/api/users';
     const url = 'http://localhost:8000/api/users';
+    if (newUser) {
     try{
         $.ajax( {
             url,
@@ -30,7 +32,8 @@ joinBtn.on("click", () => {
         console.error('Error creating account', error);
         console.error('Failed to create account');
     }
-    
+}
+
 });
 
 const loadSongBank = () => {
