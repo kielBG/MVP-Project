@@ -139,6 +139,15 @@ const loadSongBank = () => {
 };
 loadSongBank();
 
+const fillLatest = () => {
+    const newSongs = $(`#newSongs`);
+    for (let i = songBank.length - 1; i > songBank.length - 4; i--) {
+        const listItem = $(`<li class='song'> <b>song title:</b> ${songBank[i].song_title} <b>band name:</b> ${songBank[i].band_name}</li>`);
+        newSongs.append(listItem);
+
+    }
+};
+fillLatest();
 
 const songsBtn = $(`#songs`);
 const recommendForm = $(`<div id="recommend_form" class = "page" ></div>`);
