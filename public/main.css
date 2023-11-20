@@ -22,7 +22,7 @@
 }
 
 #logo {
-    color: var(--black);
+    color: var(--platinum);
     margin: 0 1rem;
     font-size: 3rem;
     transition-duration: .4s;
@@ -54,7 +54,7 @@
 }
 
 #branding {
-    color: var(--black);
+    color: var(--platinum);
     font-size: 7rem;
 }
 
