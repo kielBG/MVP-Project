@@ -405,9 +405,10 @@ logoutBtn.on("click", () => {
     console.log('working')
     $(`#welcome`).remove();
     localStorage.removeItem('userId');
-    loginBtn.show();
-    signinBtn.show();
     logoutBtn.hide();
+    loginBtn.show();
+    joinBtn.show();
+    
 });
 
 });
