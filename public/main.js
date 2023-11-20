@@ -56,6 +56,7 @@ joinBtn.on("click", () => {
     joinForm.empty();
     joinBtn.hide();
     loginBtn.hide();
+    joinForm.hide();
 });
 
 });
@@ -108,6 +109,7 @@ loginBtn.on("click", () => {
     loginForm.empty();
     joinBtn.hide();
     loginBtn.hide();
+    loginForm.hide();
 });
 
 });
