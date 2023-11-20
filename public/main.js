@@ -5,10 +5,7 @@ const body = $('body');
 const joinBtn = $(`#sign_up`);
 const loginBtn = $(`#login`);
 const navContainer = $(`#navContainer`);
-const logoutBtn = $(`#logoutBtn`);
-logoutBtn.hide();
 
-const background = $(`.backgroundImage`);
 
 
 
@@ -54,17 +51,17 @@ joinBtn.on("click", () => {
             
             
         });
-    } catch (error) {
-        console.error('Error creating account', error);
-        console.error('Failed to create account');
-    }
+        } catch (error) {
+            console.error('Error creating account', error);
+            console.error('Failed to create account');
+        }
+        
+    });
     joinForm.empty();
     joinBtn.hide();
     loginBtn.hide();
     joinForm.hide();
     logoutBtn.show();
-});
-
 });
 
 loginBtn.on("click", () => {
@@ -108,25 +105,20 @@ loginBtn.on("click", () => {
             
             
         });
-    } catch (error) {
-        console.error('Error signing in', error);
-        console.error('Failed to login');
-    }
-    loginForm.empty();
-    joinBtn.hide();
-    loginBtn.hide();
-    loginForm.hide();
-    logoutBtn.show()
-});
+        } catch (error) {
+            console.error('Error signing in', error);
+            console.error('Failed to login');
+        }
+        
+    });
+loginForm.empty();
+joinBtn.hide();
+loginBtn.hide();
+loginForm.hide();
+logoutBtn.show()
 });
 
-logoutBtn.on("click", () => {
-    console.log('working')
-    $(`#welcome`).remove();
-    localStorage.removeItem('userId');
-    loginBtn.show();
-    signinBtn.show();
-});
+
 
 const loadSongBank = () => {
     const url = 'https://eclectunes.onrender.com/api/songs';
@@ -394,6 +386,17 @@ logo.on("click", () => {
     editForm.hide();
     songsPage.hide();
     deleteForm.hide();
-})
+});
+
+const logoutBtn = $(`#logoutBtn`);
+logoutBtn.hide();
+
+logoutBtn.on("click", () => {
+    console.log('working')
+    $(`#welcome`).remove();
+    localStorage.removeItem('userId');
+    loginBtn.show();
+    signinBtn.show();
+});
 
 });
