@@ -8,6 +8,9 @@ const navContainer = $(`#navContainer`);
 const logoutBtn = $(`#logoutBtn`);
 logoutBtn.hide();
 
+const background = $(`.backgroundImage`);
+
+
 
 joinBtn.on("click", () => {
     recommendForm.hide();
@@ -115,14 +118,14 @@ loginBtn.on("click", () => {
     loginForm.hide();
     logoutBtn.show()
 });
+});
 
 logoutBtn.on("click", () => {
+    console.log('working')
     $(`#welcome`).remove();
     localStorage.removeItem('userId');
     loginBtn.show();
     signinBtn.show();
-});
-
 });
 
 const loadSongBank = () => {

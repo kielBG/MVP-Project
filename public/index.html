@@ -21,8 +21,9 @@
           current++;
           current = current % backgrounds.length;
           header.css('background-image', backgrounds[current]);
+          header.toggleClass('fade');
       }
-      setInterval(nextBackground, 1000);
+      setInterval(nextBackground, 5000);
       
       header.css('background-image', backgrounds[0]);
       });
