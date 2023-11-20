@@ -2,6 +2,7 @@ import express from "express"
 import pg from "pg"
 import cors from "cors"
 import dotenv from "dotenv"
+
 //express
 const app = express();
 //port
@@ -11,7 +12,7 @@ dotenv.config({path: './.env'});
 //pool
 const { Pool } = pg;
 const pool = new pg.Pool ({
-    connectionString: process.env.LOCAL_DATABASE_URL
+    connectionString: process.env.DATABASE_URL
 })
 
 //server inst
@@ -96,18 +97,51 @@ app.post('/api/songs', async (req, res) => {
     }
 });
 
-app.post('/api/users', async (req, res) => {
+//register route
+app.post('/api/users/register', async (req, res) => {
     const client = await pool.connect();
+    
     const {username, password} = req.body;
+    
     try {
-        const result = await client.query('INSERT INTO users (username, password, edit_all_permission) VALUES ($1, $2, FALSE)', [username, password]);
-        res.json(req.body);
+        const existingUser = await client.query('SELECT * FROM users WHERE username = $1', [username]);
+        if(existingUser.rows.length > 0) {
+            return res.status(400).json({error: 'Username already exists'});
+        }
+        
+        const result = await client.query('INSERT INTO users (username, password, edit_all_permission) VALUES ($1, $2, FALSE) RETURNING *', [username, password]);
+        const newUser = result.rows[0];
+        console.log(newUser)
+        res.status(200).json(newUser)
     } 
     catch (error) {
         res.status(500).send(error);
     }
     finally{
         client.release();
+    }
+});
+
+//login route
+app.post('/api/users/login', async (req, res) => {
+    const client = await pool.connect();
+    
+    const {username, password} = req.body;
+    
+    try {
+        const results = await client.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
+        if(results.rows.length > 0) {
+            const user = results.rows[0];
+            res.status(200).json({user, success: true, message: 'Login Successful'});
+        } else {
+            res.status(400).json({message: 'Invalid User'})
+        } 
+    }catch(error) {
+             console.log(error.stack);
+             res.status(500).json({error: 'Internal Server Error'});
+        }
+        finally{
+            client.release();
     }
 });
 

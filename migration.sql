@@ -1,7 +1,7 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(20) NOT NULL,
-    password VARCHAR(20) NOT NULL CHECK (LENGTH(password) > 4 AND LENGTH(password) <= 20),
+    password VARCHAR(225) NOT NULL,
     edit_all_permission BOOLEAN
 );
 
