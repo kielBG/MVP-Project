@@ -222,7 +222,7 @@ function sendRecommend() {
         user_id: localStorage.getItem('userId')
     };
     console.log(newSong);
-    songBank.push(newSong);
+    
     try{
         $.ajax({
             url,
@@ -233,6 +233,7 @@ function sendRecommend() {
             .done( (data) => {
                 console.log('Song posted:', data);
                 reccCard.append(`<p>Thanks for your recommendation!</p>`);
+                songBank.push(data);
             })
         
     } catch (error) {
