@@ -51,12 +51,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 4s opacity ease;
-    opacity: 0;
-}
-
-.fade {
-    opacity: 100;
 }
 
 #branding {

@@ -7,7 +7,6 @@
     <script>
       $(document).ready(function(){
       var header = $('.backgroundImage');
-      header.toggleClass('fade');
       
       var backgrounds = new Array(
           'url(https://images.unsplash.com/photo-1510100831744-b8d7fea7ca2e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D)'
@@ -23,7 +22,7 @@
           current = current % backgrounds.length;
           header.css('background-image', backgrounds[current]);
       }
-      setInterval(nextBackground, 5000);
+      setInterval(nextBackground, 7000);
       
       header.css('background-image', backgrounds[0]);
       });

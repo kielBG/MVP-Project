@@ -388,7 +388,7 @@ logo.on("click", () => {
     deleteForm.hide();
 });
 
-const logoutBtn = $(`#logoutBtn`);
+const logoutBtn = $(`#logout`);
 logoutBtn.hide();
 
 logoutBtn.on("click", () => {
