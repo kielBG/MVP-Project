@@ -136,18 +136,19 @@ const loadSongBank = () => {
         console.error('Error getting songs', error);
         console.error('Failed to get songs');
     }
+    fillLatest();
 };
 loadSongBank();
 
-const fillLatest = (array) => {
+const fillLatest = () => {
     const newSongs = $(`#newSongs`);
-    for (let i = array.length - 1; i > array.length - 4; i--) {
-        const listItem = $(`<li class='song'> <b>song title:</b> ${array[i].song_title} <b>band name:</b> ${array[i].band_name}</li>`);
+    for (let i = songBank.length - 1; i > songBank.length - 4; i--) {
+        const listItem = $(`<li class='song'> <b>song title:</b> ${songBank[i].song_title} <b>band name:</b> ${songBank[i].band_name}</li>`);
         newSongs.append(listItem);
 
     }
 };
-fillLatest(songBank);
+
 
 const songsBtn = $(`#songs`);
 const recommendForm = $(`<div id="recommend_form" class = "page" ></div>`);
