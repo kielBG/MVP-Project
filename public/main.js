@@ -217,7 +217,7 @@ function sendRecommend() {
         song_title: $(`#song_title`).val(),
         band_name: $(`#band_name`).val(),
         genre: $(`#genre`).val(),
-        song_qoute: $(`#song_quote`).val(),
+        song_quote: $(`#song_quote`).val(),
         recommend_why: $(`#recommend_why`).val(),
         user_id: localStorage.getItem('userId')
     };
