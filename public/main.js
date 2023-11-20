@@ -358,7 +358,7 @@ deleteBtn.on("click", () => {
         `);
         const removalButton = $(`#send_delete`);
         removalButton.on("click", () => {
-            if (localStorage.getItem('userId') === removalSong.user_id || localStorage.getItem('userId') == 1) {
+            if (localStorage.getItem('userId') == removalSong.user_id || localStorage.getItem('userId') == 1) {
             let finalRemove = window.confirm("If you wish to delete please confirm.")
             if (finalRemove === true) {
                 songBank.splice(targetIndex, 1)
