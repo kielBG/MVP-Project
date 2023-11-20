@@ -407,6 +407,7 @@ logoutBtn.on("click", () => {
     localStorage.removeItem('userId');
     loginBtn.show();
     signinBtn.show();
+    logoutBtn.hide();
 });
 
 });
