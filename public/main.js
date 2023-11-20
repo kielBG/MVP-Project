@@ -295,7 +295,7 @@ updateBtn.on("click", () => {
     
             console.log(putSong);
     
-            const url = 'https://eclectunes.onrender.com/api/songs/${id}';
+            const url = `https://eclectunes.onrender.com/api/songs/${id}`;
             // const url = `http://localhost:8000/api/songs/${id}`;
     
             try{
@@ -362,7 +362,7 @@ deleteBtn.on("click", () => {
             if (finalRemove === true) {
                 songBank.splice(targetIndex, 1)
                 console.log(songBank);
-                const url = 'https://eclectunes.onrender.com/api/songs/${id}';
+                const url = `https://eclectunes.onrender.com/api/songs/${id}`;
                 // const url = `http://localhost:8000/api/songs/${id}`;
     
                 try{
