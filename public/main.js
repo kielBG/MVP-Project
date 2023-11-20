@@ -144,7 +144,7 @@ const loadSongBank = () => {
         console.error('Error getting songs', error);
         console.error('Failed to get songs');
     }
-    fillLatest();
+    fillLatest(songBank);
 };
 loadSongBank();
 
