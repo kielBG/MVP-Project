@@ -121,7 +121,7 @@ loginBtn.on("click", () => {
 const fillLatest = (arr) => {
     const newSongs = $(`#newSongs`);
     for (let i = arr.length - 1; i > arr.length - 4; i--) {
-        const listItem = $(`<li class='song'> <b>song title:</b> ${arr[i].song_title} <b>band name:</b> ${arr[i].band_name}</li>`);
+        const listItem = $(`<li class='newSong'> ${arr[i].song_title} - ${arr[i].band_name}</li>`);
         newSongs.append(listItem);
 
     }
