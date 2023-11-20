@@ -71,6 +71,7 @@
 .card {
     padding: 3rem;
     margin-bottom: 4rem;
+    text-align: center;
 }
 .albumImage{
     background: url('');
