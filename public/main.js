@@ -118,10 +118,10 @@ loginBtn.on("click", () => {
 
 });
 
-const fillLatest = (array) => {
+const fillLatest = (arr) => {
     const newSongs = $(`#newSongs`);
-    for (let i = array.length - 1; i > array.length - 4; i--) {
-        const listItem = $(`<li class='song'> <b>song title:</b> ${array[i].song_title} <b>band name:</b> ${array[i].band_name}</li>`);
+    for (let i = arr.length - 1; i > arr.length - 4; i--) {
+        const listItem = $(`<li class='song'> <b>song title:</b> ${arr[i].song_title} <b>band name:</b> ${arr[i].band_name}</li>`);
         newSongs.append(listItem);
 
     }
@@ -138,13 +138,14 @@ const loadSongBank = () => {
             success: (data) => {
                 songBank = data;
                 console.log(songBank);
+                fillLatest(songBank);
             }
         });
     } catch (error) {
         console.error('Error getting songs', error);
         console.error('Failed to get songs');
     }
-    fillLatest(songBank);
+    
 };
 loadSongBank();
 
