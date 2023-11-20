@@ -107,6 +107,7 @@ button:hover {
 
 .form {
     position: absolute;
+    z-index: 1003;
     top: 50%;
     right: 45%;
     width: 100%;
