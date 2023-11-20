@@ -4,6 +4,29 @@
     <title>EclecTunes</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script defer src="main.js"></script>
+    <script>
+      $(document).ready(function(){
+      var header = $('.backgroundImage');
+      
+      var backgrounds = new Array(
+          'url(https://images.unsplash.com/photo-1510100831744-b8d7fea7ca2e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D)'
+        , 'url(https://images.unsplash.com/photo-1458560871784-56d23406c091?q=80&w=2748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+        , 'url(https://images.unsplash.com/photo-1505672984986-b7c468c7a134?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8)'
+        , 'url(https://images.unsplash.com/photo-1518401543587-7bf7a1f74e66?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8)'
+      );
+      
+      var current = 0;
+      
+      function nextBackground() {
+          current++;
+          current = current % backgrounds.length;
+          header.css('background-image', backgrounds[current]);
+      }
+      setInterval(nextBackground, 1000);
+      
+      header.css('background-image', backgrounds[0]);
+      });
+      </script>
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
