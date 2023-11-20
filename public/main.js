@@ -55,13 +55,13 @@ joinBtn.on("click", () => {
             console.error('Error creating account', error);
             console.error('Failed to create account');
         }
-        
+        joinForm.empty();
+        joinBtn.hide();
+        loginBtn.hide();
+        joinForm.hide();
+        logoutBtn.show();
     });
-    joinForm.empty();
-    joinBtn.hide();
-    loginBtn.hide();
-    joinForm.hide();
-    logoutBtn.show();
+    
 });
 
 loginBtn.on("click", () => {
@@ -109,13 +109,13 @@ loginBtn.on("click", () => {
             console.error('Error signing in', error);
             console.error('Failed to login');
         }
-        
+        loginForm.empty();
+        joinBtn.hide();
+        loginBtn.hide();
+        loginForm.hide();
+        logoutBtn.show()
     });
-loginForm.empty();
-joinBtn.hide();
-loginBtn.hide();
-loginForm.hide();
-logoutBtn.show()
+
 });
 
 
