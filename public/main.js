@@ -4,7 +4,9 @@ let songBank;
 const body = $('body');
 const joinBtn = $(`#sign_up`);
 const loginBtn = $(`#login`);
-const navContainer = $(`#navContainer`)
+const navContainer = $(`#navContainer`);
+const logoutBtn = $(`#logoutBtn`);
+logoutBtn.hide();
 
 
 joinBtn.on("click", () => {
@@ -57,6 +59,7 @@ joinBtn.on("click", () => {
     joinBtn.hide();
     loginBtn.hide();
     joinForm.hide();
+    logoutBtn.show();
 });
 
 });
@@ -110,7 +113,15 @@ loginBtn.on("click", () => {
     joinBtn.hide();
     loginBtn.hide();
     loginForm.hide();
+    logoutBtn.show()
 });
+
+logoutBtn.on("click", () => {
+    $(`#welcome`).remove();
+    localStorage.removeItem('userId');
+    loginBtn.show();
+    signinBtn.show();
+})
 
 });
 
